@@ -6,7 +6,6 @@
   "main": "src/index.js",
   "homepage": "https://troshuk.github.io/redux-todo-app/",
   "dependencies": {
-    "@redux-devtools/extension": "3.2.3",
     "@reduxjs/toolkit": "^2.0.1",
     "clsx": "1.2.1",
     "nanoid": "4.0.0",
@@ -14,8 +13,7 @@
     "react-dom": "18.2.0",
     "react-icons": "4.4.0",
     "react-redux": "^8.0.2",
-    "react-scripts": "4.0.0",
-    "redux": "4.2.0"
+    "react-scripts": "4.0.0"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8"
