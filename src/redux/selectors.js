@@ -1,3 +1,5 @@
-export const getTasks = ({ tasks }) => tasks;
+export const selectTasks = state => state.tasks.items;
+export const selectIsLoading = state => state.tasks.isLoading;
+export const selectError = state => state.tasks.error;
 
-export const getStatusFilter = ({ filters: { status } }) => status;
+export const selectStatusFilter = state => state.filters.status;
