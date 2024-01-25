@@ -13,28 +13,24 @@ export const tasksSlice = createSlice({
       // Fetch tasks
       .addCase(fetchTasks.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.error = null;
         state.items = payload;
       })
 
       // Create task
       .addCase(addTask.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.error = null;
         state.items.push(payload);
       })
 
       // Delete task
       .addCase(deleteTask.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.error = null;
         state.items = state.items.filter(({ id }) => id !== payload.id);
       })
 
       // Toggle complited task
       .addCase(toggleCompleted.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.error = null;
         const index = state.items.findIndex(({ id }) => id === payload.id);
         state.items.splice(index, 1, payload);
       })
@@ -49,6 +45,7 @@ export const tasksSlice = createSlice({
         ),
         state => {
           state.isLoading = true;
+          state.error = null;
         }
       )
 
@@ -60,9 +57,9 @@ export const tasksSlice = createSlice({
           deleteTask.rejected,
           toggleCompleted.rejected
         ),
-        (state, { payload }) => {
+        (state, { error, payload }) => {
           state.isLoading = false;
-          state.error = payload;
+          state.error = payload ?? error.message;
         }
       );
   },
