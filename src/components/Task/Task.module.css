@@ -5,6 +5,12 @@
   padding: 8px 0;
 }
 
+.checkbox {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
 .text {
   flex-grow: 1;
 }
@@ -24,16 +30,14 @@
   color: #f44336;
 }
 
-.btn:hover {
+.btn:disabled {
+  cursor: not-allowed;
+}
+
+.btn:not(:disabled):hover {
   background-color: #e2e5e8;
 }
 
-.btn:active {
+.btn:not(:disabled):active {
   background-color: #bdbdbd;
-}
-
-.checkbox {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
 }

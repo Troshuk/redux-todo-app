@@ -1,14 +1,16 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { statusFilters } from "./constants";
 
-export const selectTasks = state => state.tasks.items;
-export const selectIsLoading = state => state.tasks.isLoading;
-export const selectError = state => state.tasks.error;
+import { statusFilters } from "store/constants";
+import { tasksApi } from "store/operations";
+import { statusFilterSelector } from "store/selectors";
 
-export const selectStatusFilter = state => state.filters.status;
+export const tasksSelector = createSelector(
+  tasksApi.endpoints.getTasks.select(),
+  ({ data }) => data ?? []
+);
 
-export const selectVisibleTasks = createSelector(
-  [selectTasks, selectStatusFilter],
+export const visibleTasksSelector = createSelector(
+  [tasksSelector, statusFilterSelector],
   (tasks, statusFilter) => {
     switch (statusFilter) {
       case statusFilters.active:
@@ -23,7 +25,7 @@ export const selectVisibleTasks = createSelector(
   }
 );
 
-export const selectTaskCount = createSelector([selectTasks], tasks =>
+export const tasksCountSelector = createSelector([tasksSelector], tasks =>
   tasks.reduce(
     (count, task) => {
       if (task.completed) {

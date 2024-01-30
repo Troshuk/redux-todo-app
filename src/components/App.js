@@ -1,28 +1,26 @@
+import { ToastContainer } from "react-toastify";
+
 import { Layout } from "components/Layout/Layout";
 import { AppBar } from "components/AppBar/AppBar";
 import { TaskForm } from "components/TaskForm/TaskForm";
 import { TaskList } from "components/TaskList/TaskList";
-import { useDispatch, useSelector } from "react-redux";
+
+import { useGetTasksQuery } from "store/operations";
 import { useEffect } from "react";
-import { fetchTasks } from "redux/operations";
-import { selectError, selectIsLoading } from "redux/selectors";
+import { notify } from "notify";
 
 export const App = () => {
-  const dispatch = useDispatch();
-
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  const { error } = useGetTasksQuery();
 
   useEffect(() => {
-    dispatch(fetchTasks());
-  }, [dispatch]);
+    if (error) notify(`Tasks list error: ${error.data}`, "error");
+  }, [error]);
 
   return (
     <Layout>
       <AppBar />
       <TaskForm />
-      {/* {isLoading && !error && <p>Request in progress...</p>} */}
-      {!isLoading && error && <p>{error}</p>}
+      <ToastContainer />
       <TaskList />
     </Layout>
   );

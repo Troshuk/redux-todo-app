@@ -7,6 +7,7 @@
   cursor: pointer;
   background-color: #e2e5e8;
   color: inherit;
+  text-transform: capitalize;
 }
 
 .btn.isSelected {

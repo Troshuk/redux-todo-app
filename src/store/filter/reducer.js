@@ -1,4 +1,4 @@
-import { statusFilters } from "./constants";
+import { statusFilters } from "../constants";
 import { createSlice } from "@reduxjs/toolkit";
 
 const filterSlice = createSlice({
