@@ -1,6 +1,8 @@
-import { Button } from "components/Button/Button";
+import { Button } from "components";
+
+import { useAddTaskMutation } from "store/tasks/operations";
+
 import css from "./TaskForm.module.css";
-import { useAddTaskMutation } from "store/operations";
 
 export const TaskForm = () => {
   const [addTask] = useAddTaskMutation();

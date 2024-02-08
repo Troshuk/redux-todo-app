@@ -1,20 +1,22 @@
 import { MdClose } from "react-icons/md";
 import { RiLoader2Line } from "react-icons/ri";
 
-import css from "./Task.module.css";
 import {
   useDeleteTaskMutation,
   useToggleCompletedMutation,
-} from "store/operations";
+} from "store/tasks/operations";
 import { notifyApi } from "notify";
+
+import css from "./Task.module.css";
 
 export const Task = ({ task: { id, text, completed } }) => {
   const [deleteTask, deleteTaskResult] = useDeleteTaskMutation();
   const [toggleCompleted, toggleCompletedResult] = useToggleCompletedMutation();
 
-  const handleDelete = () => notifyApi(deleteTask(id), "Task delete");
   const handleToggle = () =>
-    notifyApi(toggleCompleted({ id, completed }), "Task update");
+    notifyApi(toggleCompleted({ id, completed: !completed }), "Task update");
+
+  const handleDelete = () => notifyApi(deleteTask(id), "Task delete");
 
   return (
     <div className={css.wrapper}>

@@ -1,4 +1,5 @@
 import { Slide, toast } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.min.css";
 
 const toastConfig = {
@@ -17,7 +18,7 @@ export const notify = (message, type = "info") =>
   toast[type](message, toastConfig);
 
 export const notifyApi = (api, message = "Request") =>
-  toast.promise(api, {
+  toast.promise(api.unwrap(), {
     ...toastConfig,
     pending: `${message} is in progress`,
     success: `${message} is completed 👌`,

@@ -1,11 +1,11 @@
 import { createSelector } from "@reduxjs/toolkit";
 
 import { statusFilters } from "store/constants";
-import { tasksApi } from "store/operations";
-import { statusFilterSelector } from "store/selectors";
+import { tasksApiSelector } from "store/tasks/operations";
+import { statusFilterSelector } from "store/filter/selectors";
 
 export const tasksSelector = createSelector(
-  tasksApi.endpoints.getTasks.select(),
+  tasksApiSelector,
   ({ data }) => data ?? []
 );
 

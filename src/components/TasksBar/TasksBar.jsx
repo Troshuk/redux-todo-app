@@ -1,8 +1,8 @@
-import { StatusFilter } from "components/StatusFilter/StatusFilter";
-import { TaskCounter } from "components/TaskCounter/TaskCounter";
-import css from "./AppBar.module.css";
+import { StatusFilter, TaskCounter } from "components";
 
-export const AppBar = () => {
+import css from "./TasksBar.module.css";
+
+export const TasksBar = () => {
   return (
     <header className={css.wrapper}>
       <section className={css.section}>
