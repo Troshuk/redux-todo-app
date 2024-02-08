@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkredux_todo_app=self.webpackChunkredux_todo_app||[]).push([[38],{38:(e,d,r)=>{r.r(d),r.d(d,{default:()=>u});var s=r(270),n=r(754),t=r(184);function u(){return(0,t.jsxs)("div",{children:[(0,t.jsx)(s.q,{children:(0,t.jsx)("title",{children:"Login"})}),(0,t.jsx)(n.U0,{})]})}}}]);
+//# sourceMappingURL=38.5b2f3d48.chunk.js.map
